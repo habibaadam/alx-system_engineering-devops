@@ -3,5 +3,5 @@
 # A script that sorts the data in the apache log files
 # This script groups visitors by IP and HTTP status code, and displays this data.
 
-thefile="apache-access.log"
-awk -F' ' '{ print $1, $9}' $thefile | sort | uniq -c |sort -nr
+myfile="apache-access.log"
+awk -F' ' '{ print $1, $9}' $myfile | sort | uniq -c|sort -nr
