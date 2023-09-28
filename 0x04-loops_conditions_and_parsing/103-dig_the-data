@@ -4,5 +4,5 @@
 # Displays the number of occurrences, IP and HTTP status
 # and code of each log in sorted order
 
-myfile="apache-access.log"
-awk -F' ' '{ print $1, $9}' $myfile | sort | uniq -c|sort -nr
+thefile="apache-access.log"
+awk -F' ' '{ print $1, $9}' $thefile | sort | uniq -c|sort -nr
