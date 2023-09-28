@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
-
 # A script that sorts the data in the apache log files
 # This script groups visitors by IP and HTTP status code, and displays this data.
+# Displays the number of occurrences, IP and HTTP status
+# and code of each log in sorted order
 
 myfile="apache-access.log"
 awk -F' ' '{ print $1, $9}' $myfile | sort | uniq -c|sort -nr
