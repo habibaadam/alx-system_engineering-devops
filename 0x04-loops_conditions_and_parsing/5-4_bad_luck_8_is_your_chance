@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# A script that displays bad luck for the 4th loop iteration, good luck for the 8th loop iteration,
+# and Best School for the other iterations.
+
+h=1
+
+while [ $h -le 10 ]
+do
+    if [ $h -eq 4 ]
+    then
+        echo "bad luck"
+    elif [ $h -eq 8 ]
+    then
+        echo "good luck"
+    else
+        echo "Best School"
+    fi
+
+    ((h++))
+done
