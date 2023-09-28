@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# A script that displays "Best Schoool" and "Hi" on the 9th iteration
+h=1
+
+while [ $h -le 10 ]
+do
+    if [ $h -eq 9 ]
+    then
+        echo "Best School"
+        echo "Hi"
+    else
+        echo "Best School"
+    fi
+
+    ((h++))
+done
