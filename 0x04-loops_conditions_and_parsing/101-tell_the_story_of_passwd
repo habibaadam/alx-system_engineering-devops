@@ -2,7 +2,9 @@
 
 # A script that tells a story based on the contents of the /etc/passwd file
 myfile="/etc/passwd"
-
+f1=""
+f2=""
+f3=""
 while IFS= read -r eachline
 do
     f1="$(echo "$eachline" | cut -d":" -f1)"   # Username
