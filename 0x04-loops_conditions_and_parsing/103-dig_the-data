@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# A scriot that sorts the data in the apache log files
+# This script groups visitors by IP and HTTP status code, and displays this data.
+
+thefile="apace-access.log"
+awk -F' ' '{ print $1, $9}' $thefile | sort | uniq -c | sort -nr
