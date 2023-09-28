@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+# A script that tells a story based on the contents of the /etc/passwd file
+myfile="/etc/passwd"
+
+while IFS= read -r eachline
+do
+    f1="$(echo "$eachline" | cut -d":" -f1)"   # Username
+    f2="$(echo "$eachline" | cut -d":" -f4)"   # Group ID (GID)
+    f3="$(echo "$eachline" | cut -d":" -f6)"   # Home Directory
+    f4="$(echo "$eachline" | cut -d":" -f7)"   # Shell
+    f5="$(echo "$eachline" | cut -d":" -f3)"   # User ID (UID)
+    f6="$(echo "$eachline" | cut -d":" -f2)"   # Password (Usually 'x')
+    f7="$(echo "$eachline" | cut -d":" -f5)"   # User Info (GECOS field)
+
+    echo "The user ${f1} is part of the ${f2} gang, lives in ${f3} and rides ${f4}. ${f5}'s place is protected by the passcode ${f6}, more info about the user here: ${f7}"
+done < "$myfile"
