@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# A script displaying "Best School" using the until statement
+h=0
+
+until [ $h -eq 10 ]
+do
+    echo "Best School"
+    ((h++))
+done
