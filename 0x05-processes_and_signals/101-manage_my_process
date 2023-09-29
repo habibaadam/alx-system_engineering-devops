@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Manages 'manage_my_process'
+# Manage the 'manage_my_process' daemon
 
 PROGRAM='manage_my_process'
 RELPATH="${0%/*}/${PROGRAM}"
