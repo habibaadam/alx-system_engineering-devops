@@ -1,0 +1,29 @@
+
+What is a server?
+A server refers to a computer or a system that provides functionality, resources and services to other devices or users on a network.
+
+What is the role of the domain name?
+A domain name refers to a human readable address which is used to identify or access a website, instead of having to remember complex IP addresses.
+
+What type of DNS record www is in www.foobar.com?
+The www in www.foobar.com refers to a sub domain record pointing to the World Wide Web.
+
+What is the role of the web server?
+A web server serves web pages and manages HTTP requests and responses, it also delivers the HTML, CSS and images(static web content) to web browsers.
+
+What is the role of the application server?
+An application is much more advanced, as it providess additional functionalities than just serving web pages, such as executing the business logic of of a website's application, running codebases which in turn interact with the webserver and its database to produce dynamic content.
+
+What is the role of the database?
+A database is an organized collection of data which can be designed to efficiently store, manage, retrieve information for the website's application. Data can be in the form of user posts, accounts and comments. MYSQL is an example used.
+
+What is the server using to communicate with the computer of the user requesting the website?
+The server communicates with the user's computer using HTTP(Hypertext Transfer Protocol). Usually a user sends a request for a web page, and their browser sends a request to the server, and then the HTTP responds by providing the web content the user wants to see.
+
+Explain what the issues are with this infrastructure:
+
+SPOF: This refers to a single point of failure, which could happen and would single-handedly cause the entire system to fail. This infrastructure only has a single server and so SPOF is bound to happen. To avoid this, load balancing can be implemented to distribute traffic amongst mutiple servers deployed.
+
+Downtime when maintenance needed: Avoiding downtime(a period during when a system or service is unavailable and inaccessible to users) when new code is added or updated can be done by scheduling or planning maintenance during low traffic periods, or by alerting and communicating with users when it is time for updates.
+
+Cannot scale if too much incoming traffic: This happens when a system or service gets overloaded with traffic that it cannot handle, load balancing can be used to avoid this happening.
