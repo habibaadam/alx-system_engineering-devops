@@ -1,0 +1,29 @@
+New Additions to existing web infrastructure include:
+3 firewalls
+1 SSL certificate to serve www.foobar.com over HTTPS
+3 monitoring clients (data collector for Sumologic or other monitoring services)
+
+- Reasons for addition
+We added 3 firewalls each for the load balancer, web server and the application server:
+Firewalls are put in place between each server to act as protection and security for
+potential threats and unauthorized access with incoming and outgoing traffic. It ensures the load balancer has fine-grained control over requests it recieves and sends.
+
+Why is the traffic served over HTTPS?
+Traffic served over HTTPS is crucial for securing the communication between a user's device (like a laptop or smartphone) and the servers hosting a website, and that is where the SSL certificate comes into play. It secures the the data transmitted between users and servers.
+
+We added 3 monitoring clients:
+Monitoring tools are used to observe, collect, analyze, and report on various metrics and parameters within an infrastructure or system, and these are added to each server to check the stability, performance and any anomalys caught.
+
+Explain what to do if you want to monitor your web server QPS:
+To monitor the web server's QPS, tools such as Datadog, Prometheus which both offer QPS monitoring along with a range of other metrics, providing real-time insights and alerting functionalities.
+
+INFRASTRUCTURE ISSUES:
+Why terminating SSL at the load balancer level is an issue?
+Single Point of failure may arise, increasing the risk of SSL attacks
+
+Why having only one MySQL server capable of accepting writes is an issue?
+Having only one MySQL server capable of accepting writes can result in several issues such as SPOF, scalability issues leading to degradation in performance, and disruptions leading to the inavailability.
+
+Why having servers with all the same components (database, web server and application server) might be a problem?
+Having uniform servers with all the same components might pose certain challenges such as lack of specialization:All servers having the same components might lack optimization for specific tasks.For instance, a database server usually requires different hardware configurations and settings compared to a web or application server.
+
