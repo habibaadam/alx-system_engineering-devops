@@ -1,0 +1,37 @@
+https://imgur.com/a/Bqdl9tL
+
+1. Additional Elements in the Infrastructure:
+- Load Balancer (HAproxy): We add a load balancer to distribute incoming traffic across the application servers. This helps improve performance, scalability, and fault tolerance by evenly distributing the load among multiple servers.
+- Web Server (Nginx): The web server acts as the frontend server, handling incoming HTTP requests from clients. It receives requests from the load balancer and forwards them to the application servers based on the load balancing algorithm.
+- Database (MySQL): The MySQL database is included to store and manage the website's data.
+
+2. Distribution Algorithm of the Load Balancer:
+In our design, the load balancer (HAproxy) is configured with a load distribution algorithm. we used the round-robin load balancer
+- Round-robin: This algorithm evenly distributes requests among the available servers in a cyclic manner. Each server receives an equal share of the incoming requests
+
+3. Active-Active vs. Active-Passive Setup:
+In our infrastructure design, the load balancer is configured in an active-active setup. This means that both application servers are active and can handle requests simultaneously. In an active-active setup, the load balancer evenly distributes incoming requests among all available servers, maximizing resource utilization and performance.
+
+4. Database Primary-Replica Cluster (Master-Slave):
+In our infrastructure design, we incorporate a primary-replica (master-slave) cluster configuration for the MySQL database. Here's how it works:
+- Primary Node (Master): The primary node handles both read and write operations. Any changes made to the data are performed on the primary node, and it replicates those changes to the replica nodes.
+- Replica Nodes (Slaves): The replica nodes are read-only copies of the primary data. They replicate the primary node's data to provide redundancy and assist with read operations. Replica nodes can be used as failover options in case the primary node becomes unavailable.
+
+The primary-replica setup improves reliability, data integrity, and scalability. It allows for load balancing of read operations across multiple replica nodes, provides fault tolerance in case the primary node fails, and ensures data consistency by replicating changes from the primary node to the replicas.
+
+5. Difference between the Primary Node and Replica Node:
+The primary node (master) in a primary-replica cluster configuration is responsible for handling read and write operations. It accepts write operations and is the authoritative source for data modifications. It synchronizes and replicates its data to the replica nodes, ensuring they have an up-to-date copy of the data.
+
+In contrast, the replica nodes (slaves) in the cluster are read-only copies of the primary's data. They play a secondary role by replicating the primary node's data to provide redundancy and assist with read operations. Replica nodes can serve read requests, reducing the load on the primary node, and act as failover options in case the primary node becomes unavailable.
+
+
+Single Points of Failure (SPOF):
+- Lack of Redundancy: The absence of redundancy for the load balancer, web server, and database can lead to service disruptions if any of these components fail. Adding redundant instances of these components would help mitigate this issue.
+- Network, Power, and Hardware: The absence of redundant network connections, power sources, or hardware for each server introduces potential SPOFs. Having redundant infrastructure would enhance reliability and minimize downtime in case of failures.
+
+Security Issues:
+- No Firewall: The infrastructure design does not include a specified firewall, potentially exposing the servers to unauthorized access or attacks. Implementing an appropriate firewall (hardware or software-based) can help protect the network and server resources from malicious activities.
+- No HTTPS: The absence of HTTPS configuration raises security concerns, as sensitive data would be transmitted over unencrypted channels. Enabling HTTPS using SSL/TLS certificates would ensure secure communication between clients and the web servers.
+
+No Monitoring:
+- Without monitoring tools or services in place, there is no visibility into performance, resource utilization, and critical infrastructure metrics. Implementing monitoring solutions such as server monitoring, network monitoring, and application performance monitoring is essential for proactive issue detection and troubleshooting.
