@@ -8,16 +8,16 @@ sudo apt -y install nginx
 sudo service nginx start
 sudo chown -R "$USER":"$USER" /var/www/html
 sudo chmod -R 755 /var/www
-sudo echo 'Hello World!' | tee /var/www/html/index.nginx-debian.html
+sudo echo 'Hello World!' | tee /var/www/html/index.html
 
-sudo chown -R "$USER":"$USER" /etc/nginx/sites.enabled
-sudo chmod -R 755 /etc/nginx/sites.enabled
+sudo chown -R "$USER":"$USER" /etc/nginx/sites-enabled
+sudo chmod -R 755 /etc/nginx/sites-enabled
 sudo echo "server {
         listen 80 default_server;
         listen [::]:80 default_server;
 
         root /var/www/html;
-        index index.html index.html index.nginx-debian.html;
+        index index.html index.htm index.nginx-debian.html;
 
         server_name _;
 
@@ -26,8 +26,8 @@ sudo echo "server {
         }
 
         location / {
-            try_files \$uri \$uri/ =404;
+                try_files \$uri \$uri/ =404;
         }
-}" | sudo tee /etc/nginx/sites.enabled/default
+}" | sudo tee /etc/nginx/sites-enabled/default
 
 sudo service nginx restart
