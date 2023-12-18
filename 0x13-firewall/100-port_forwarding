@@ -7,9 +7,12 @@
 #   ufw-before-output
 #   ufw-before-forward
 #
+
+# Redirect requests from port 8080/tcp to 80/tcp
 *nat
-:PREROUTING ACCEPT {0:0}
+:PREROUTING ACCEPT [0:0]
 -A PREROUTING -p tcp --dport 8080 -j REDIRECT --to-port 80
+COMMIT
 
 # Don't delete these required lines, otherwise there will be errors
 *filter
@@ -68,11 +71,11 @@
 
 # allow MULTICAST mDNS for service discovery (be sure the MULTICAST line above
 # is uncommented)
--A ufw-before-input -p udp -d 224.0.0.251 --dport 5353 -j ACCEPT
+-A ufw-before-input -p udp -d 54.84.6.188 --dport 5353 -j ACCEPT
 
 # allow MULTICAST UPnP for service discovery (be sure the MULTICAST line above
 # is uncommented)
--A ufw-before-input -p udp -d 239.255.255.250 --dport 1900 -j ACCEPT
+-A ufw-before-input -p udp -d 54.165.227.71 --dport 1900 -j ACCEPT
 
 # don't delete the 'COMMIT' line or these rules won't be processed
 COMMIT
