@@ -6,6 +6,7 @@ about his/her TODO list progress.
 import sys
 import requests
 
+
 if __name__ == "__main__":
     url = "https://jsonplaceholder.typicode.com/"
     user_name = requests.get(url + "users/{}".format(sys.argv[1])).json()
