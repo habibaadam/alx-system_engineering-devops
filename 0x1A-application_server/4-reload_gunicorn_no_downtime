@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# This script reloads gunicorn without downtime
+
+ps aux | grep gunicorn | grep -v grep | awk '{print $2}' | xargs kill -HUP
